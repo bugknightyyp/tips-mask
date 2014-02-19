@@ -1,0 +1,13 @@
+{
+  "name": "tips-full-screen",
+  "author": "yongpeng yang",
+  "email": "bugkngihtyyp@gmail.com",
+  "version": "1.0.0",
+  "devDependencies": {
+    "jquery": "1.10.2",
+    "seajs": "~2.1.1",
+    "grunt": "~0.4.1",
+    "grunt-cmd-transport": "~0.2.9",
+    "grunt-contrib-uglify": "~0.2.5"
+  }
+}

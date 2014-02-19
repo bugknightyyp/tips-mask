@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>自定义提示框</title>
+<link rel="stylesheet" href="" />
+
+<style>
+ body{ font-size:12px; height: 2000px; }
+ *{ padding:0; margin:0;}  
+ div{border: 1px solid #ccc;}
+ </style>
+</head>
+
+<body >
+fsfsfsf
+sfsfs
+sf
+<div id="test" style="position: fixed; left: 0; top: 0; width: 100%; height: 100%; _position: absolute; display: none; ">
+  <div style=" position: fixed; filter:alpha(opacity=30); opacity: 0.3;background-color: #000;  top:0; left: 0; width: 100%; height: 100%; _position: absolute;zoom: 1;"></div>
+  <div style=" position: fixed; left: 50%;margin-left: -20%; top: 15%;width: 40%;background-color: #fff; _position: absolute; _top: expression( document.documentElement.scrollTop + screen.height * 0.10); box-shadow: 0 0 10px 20px #000"></div>
+</div>
+</body>
+</html>
+
+<script src="../bower_components/jquery/dist/jquery.js"></script>
+<script src="../src/tips-mask.js"></script>
+<script>
+
+
+
+
+ 
+tipsMask("请注意填写正确的格式", {tipsTimeout: 300000});
+
+
+
+
+
+
+</script>

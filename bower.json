@@ -1,0 +1,25 @@
+{
+  "name": "tips-mask",
+  "version": "1.0.0",
+  "homepage": "https://github.com/bugknightyyp/tips-mask",
+  "authors": [
+    "bugknightyyp <bugknightyyp@gmail.com>"
+  ],
+  "description": "tips with a layer mask",
+  "main": "dist/tips-mask.js",
+  "keywords": [
+    "tips",
+    "jquery-plugin"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "1.11.0"
+  }
+}
