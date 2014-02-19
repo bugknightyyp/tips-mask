@@ -85,12 +85,14 @@ var tipsMask;
     
   };
   var proto = tips.prototype;
-  proto.template = "<div style=\"position: fixed; left: 0; top: 0; width: 100%; height: 100%; _position: absolute; *zoom: 1;\">"
-            +"  <div  name=\"bg\"style=\" position: fixed; filter:alpha(opacity=${ IEOpacity }); opacity: ${ opacity };background-color: #000; "
-            +"  top:0; left: 0; width: 100%; height: 100%; _position: absolute;_height:expression( document.documentElement.scrollHeight);*zoom: 1;\"></div>"
-            +"  <div name=\"inner-box\" style=\" position: fixed; left: 50%;margin-left: -20%; top: 25%;width: 40%;background-color: #fff; _position: absolute;"
-            +"  _top: expression( document.documentElement.scrollTop + screen.height * 0.10);box-shadow: 0 0 10px 3px #999\">${ text }</div>"
-            +"</div>";
+  proto.template = "<div class=\"tips-mask-container\" style=\"position: fixed; left: 0; top: 0; width: 100%; height: 100%; " +
+    "_position: absolute; *zoom: 1;\"><div  name=\"bg\"style=\" position: fixed; filter:alpha(opacity=${ IEOpacity }); " +
+    "opacity: ${ opacity };background-color: #000;top:0; left: 0; width: 100%; height: 100%;" +
+    " _position: absolute;_height:expression( document.documentElement.scrollHeight);*zoom: 1;\"></div>" +
+    "<div name=\"inner-box\" style=\" position: fixed; left: 50%;margin-left: -20%; top: 25%;width: 40%;background-color: #fff;" +
+    " _position: absolute; _top: expression( document.documentElement.scrollTop + screen.height * 0.10);" +
+    "box-shadow: 0 0 10px 3px #999\">${ text }</div></div>";
+    
   /**
   * destroy the tips wrapper
   * @method destroy
