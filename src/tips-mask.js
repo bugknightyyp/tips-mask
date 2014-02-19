@@ -55,41 +55,38 @@ var tipsMask;
     */ 
     var attachEvents = function(){
       var self = this;
-      this.panel.bind("click", function(e){
-        var target = $(e.target);
-        $.each(options.filter, function(index, item){
-          if ($(target).is(item)){
-            options.callback.call(target, self);
-          }
-        });
-          
-          
-        if (options.BGClickable && target.is("[name='bg']")){
-          self.destroy();
-        }
-          return false;
+      this.panel.on('click', options.filter.join(','), function(e){
+        options.callback.call(this, self);
       });
+      if (options.BGClickable) {
+        this.panel.find('> .tips-mask-bg').on('click', function(e){
+            
+              self.destroy();
+           
+          });
+      }
     }; 
     
     //init
     build.call(this);
     attachEvents.call(this);
     $("body").append(this.panel);
-    if (/[1-9]\d*/.test(options.tipsTimeout)) {
+    if (/^[1-9]\d+$/.test(options.tipsTimeout)) {
       ~function(self){
-        setTimeout(function(){
+        self.timer = setTimeout(function(){
           self.destroy();
         }, options.tipsTimeout)
       }(this);
     }
     
   };
+  this.timer = null;
   var proto = tips.prototype;
   proto.template = "<div class=\"tips-mask-container\" style=\"position: fixed; left: 0; top: 0; width: 100%; height: 100%; " +
-    "_position: absolute; *zoom: 1;\"><div  name=\"bg\"style=\" position: fixed; filter:alpha(opacity=${ IEOpacity }); " +
+    "_position: absolute; *zoom: 1;\"><div  class=\"tips-mask-bg\"style=\" position: fixed; filter:alpha(opacity=${ IEOpacity }); " +
     "opacity: ${ opacity };background-color: #000;top:0; left: 0; width: 100%; height: 100%;" +
     " _position: absolute;_height:expression( document.documentElement.scrollHeight);*zoom: 1;\"></div>" +
-    "<div name=\"inner-box\" style=\" position: fixed; left: 50%;margin-left: -20%; top: 25%;width: 40%;background-color: #fff;" +
+    "<div class=\"tips-mask-content-box\" style=\" position: fixed; left: 50%;margin-left: -20%; top: 25%;width: 40%;background-color: #fff;" +
     " _position: absolute; _top: expression( document.documentElement.scrollTop + screen.height * 0.10);" +
     "box-shadow: 0 0 10px 3px #999\">${ text }</div></div>";
     
@@ -98,8 +95,11 @@ var tipsMask;
   * @method destroy
   */
   proto.destroy = function(){
-    this.panel.remove();
-    this.panel = null;
+    if (this.panel) {
+      this.panel.remove();
+      this.panel = null;
+    }
+    clearTimeout(this.timer);
   };
   
   /**
